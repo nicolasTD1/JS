@@ -1,33 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <link rel="stylesheet" href="../base.css">
+      <title>Variables</title>
+   </head>
+   <body>
+      <script>
+         'use strict';
+         var first = 'west'; //function scope
+         let age = 300;      //block scope
+         const cool = true;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Variables!</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
-
-<body>
-  <script>
-    // function scoped
-    var first = 'wes';
-    // block scoped
-    let age = 300;
-    let cool = true;
-
-    const Dog = 'bowser';
-
-    // camel case
-    const iLovePizza = true;
-    // UpperCamelCase
-    const ILoveToEatHotDogs = false;
-    // snake case!!
-    const this_is_snake_case = 'cool';
-
-
-
-  </script>
-</body>
-
+         first = '1st';
+      </script>
+   </body>
 </html>

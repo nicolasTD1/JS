@@ -1,5 +1,6 @@
+console.log("im in another file");
 const p = document.querySelector('p');
-console.log('im in another file');
 
-const age = 100;
+console.log(paragraph);
+const age = 101;
 console.log(p, age);

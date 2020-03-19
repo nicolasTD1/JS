@@ -1,88 +1,43 @@
-/* eslint-disable */
-/*
-const name = 'wes';
-const middle = "topher";
-const last = `bos`;
+// console.log("it works");
 
-const sentence = "shes's so \"cool\"";
-const sentence2 = `shes's so "cool"`;
-
-const song = `Ohhh
-
-ya
-
-I like
-pizza`;
-
-const hello = 'hello my name is ' + name + ". Nice to meet you";
-
-let hello2 = 'hello my name is ';
-hello2 = hello2 + name;
-hello2 = hello2 + ' Nice to meet you';
-
-const hello = `hello my name is ${name}. Nice to meet you. I am ${1 + 100} years old`;
-
-const html = `
-  <div>
-    <h2>${name}</h2>
-    <p>${hello}</p>
-  </div>
-`;
-
-document.body.innerHTML = html;
-
-*/
-
-// const age = 100.5;
 // const name = 'wes';
+// const middle = "topher";
+// const last = `bos`;
 
-// const a = 10;
-// const b = 20;
-/*
-const smarties = 20;
-const kids = 3;
-const eachKidGets = Math.floor(smarties / kids);
-const dadGets = smarties % kids;
-console.log(`Each kids gets ${eachKidGets}`);
+// const sentence = 'she\'s so cool';
 
-const price = 1034;
-*/
+// console.log(name+ middle+last);
+
+// const hmtl =
+// `<div>
+//    <h2>${middle}</h2>
+// </div>`;
+
+// console.log(hmtl);
+
+// const salut = `Hello my name is ${name}.Nice to meet you`;
+
+// console.log(salut);
 
 
-/*
+//typeof [variable]
+
+const one = 100.5;
+const two = "wes";
+
+//objeto
 const person = {
-  first: 'wes',
-  last: 'bos',
-  age: 100
+   first: 'wes',
+   last: 'bos',
+   age: '20'
 };
-
-
-let dog;
-console.log(dog);
-dog = 'snickers';
-
-
-let somethingUndefined;
-const somethingNull = null;
-
-const cher = {
-  first: 'cher'
-};
-
-const teller = {
-  first: 'Raymond',
-  last: 'Teller'
-}
-
-teller.first = 'Teller';
-teller.last = null;
-
-*/
+//console.log(person.last);
 
 let isDrawing = false;
-let age = 18;
+let age = 20;
 const ofAge = age > 19;
 console.log(ofAge);
 
-age = 100;
-let age2 = 100;
+// === - verifica que los valores y los tipos sean los mismos
+
+// parseInt() -> given a String, returns a integer
