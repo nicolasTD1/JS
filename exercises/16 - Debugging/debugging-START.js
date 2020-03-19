@@ -14,6 +14,11 @@ people.forEach((person, index) => {
 
 // Grabbing Elements
 
+// $0 gives you access to the selected HTML element
+//   ex: at console type $0 to get the tag or $0.value to get the value of that field
+
+// $$('p') -> finds all the paragraphs on a website
+
 // Breakpoints
 
 // Scope
