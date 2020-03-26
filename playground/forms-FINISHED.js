@@ -32,8 +32,6 @@ signupForm.name.addEventListener('blur', logEvent);
 // 'focus'
 // 'blur'
 
-
-// !!!!!!!!
 const photo = document.querySelector('.photo');
 
 function handlePhotoClick(event) {

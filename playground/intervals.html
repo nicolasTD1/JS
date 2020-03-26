@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=\, initial-scale=1.0">
+   <title>Intervals</title>
+   <link rel="stylesheet" href="../base.css">
+</head>
+<body>
+   <script>
+      function buzzer() {
+         console.log("EEEEFEFEF");
+      }
+
+      function sayHi() {
+         console.log("Hi");
+      }
+      // setTimeout(buzzer, 500); al cargar la pagina
+
+      function setImmediateInterval(funcToRun, ms){
+         funcToRun();
+         return setInterval(funcToRun, ms);
+      }
+
+      // setImmediateInterval(buzzer, 2000);
+      // setImmediateInterval(sayHi, 200);
+
+      function destroy() {
+         document.body.innerHTML = `<p>Destroyed</p>`
+      }
+
+      const destroyed = setTimeout(destroy, 2000);
+      //clearTimeout() stops the timer, you need to save the reference in a variable
+      //ex:
+      window.addEventListener('click', () => {
+         console.log('You saved the world!');
+         clearTimeout(destroyed);
+      });
+   </script>
+</body>
+</html>
