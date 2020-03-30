@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Game</title>
+</head>
+<body>
+   <canvas id="gameCanvas" width="1000" height="800"></canvas>
+   <script>
+      var canvas;
+      var canvasContext;
+      var ballX = 50;
+      var ballY = 50;
+      var ballSpeedX = 10;
+      var ballSpeedY = 4;
+      var paddle1Y = 100;
+      var paddle2Y = 100;
+      var yv = 0;
+
+      const PADDLE_HEIGHT = 100;
+      const PADDLE_WIDTH = 10;
+
+
+      window.onload = function() {
+         canvas = document.getElementById("gameCanvas");
+         canvasContext = canvas.getContext("2d");
+         var framesPerSecond = 30;
+         setInterval(function () {
+            moveEverything();
+            drawEverything();
+         },1000/framesPerSecond);
+         document.addEventListener("keydown", function (e){
+            var pos = movePaddle(e);
+            paddle1Y += pos;
+         });
+      }
+
+      function ballReset() {
+         ballX += ballSpeedX;
+         ballSpeedX = -ballSpeedX;
+         ballX = canvas.width/2;
+         ballY = canvas.height/2;
+      }
+
+      function computerMovement(){
+         let random2 = Math.ceil( Math.random() * (50 - 25) + 25);
+         let paddle2YCenter = paddle2Y + (PADDLE_HEIGHT/2);
+         if(paddle2YCenter < ballY-35){
+            paddle2Y += random2;
+         }else if (paddle2YCenter > ballY+35){
+            paddle2Y -= random2;
+         }
+      }
+
+      function computerMovement2(){
+         let random1 = Math.ceil( Math.random() * (50 - 25) + 25);
+         let paddle1YCenter = paddle1Y + (PADDLE_HEIGHT/2);
+         if(paddle1YCenter < ballY-35){
+            paddle1Y += random1;
+         }else if (paddle1YCenter > ballY+35){
+            paddle1Y -= random1;
+         }
+      }
+
+      function moveEverything (){
+
+         computerMovement();
+         computerMovement2();
+
+         ballX += ballSpeedX;
+         ballY += ballSpeedY;
+
+         if (ballX >= canvas.width){
+            if(ballY > paddle2Y && ballY <  paddle2Y+PADDLE_HEIGHT) {
+               ballSpeedX = -ballSpeedX;
+               let deltaY = ballY - (paddle2Y+PADDLE_HEIGHT/2);
+               ballSpeedY = deltaY * 0.35;
+            } else {
+               ballReset();
+            }
+         }
+         if (ballX < 0){
+            if(ballY > paddle1Y && ballY <  paddle1Y+PADDLE_HEIGHT) {
+               ballSpeedX = -ballSpeedX;
+               let deltaY = ballY - (paddle1Y+PADDLE_HEIGHT/2);
+               ballSpeedY = deltaY * 0.35;
+
+            } else {
+               ballReset();
+            }
+         }
+         if (ballY >= canvas.height){
+            ballSpeedY = -ballSpeedY;
+         }
+         if (ballY < 0){
+            ballSpeedY = -ballSpeedY;
+         }
+      }
+
+
+      function movePaddle (en){
+         switch (en.keyCode){
+            case 38: //up arrow
+               yv=-50; 
+               break;
+            case 40: //down arrow
+               yv=50;
+               break;
+            default:
+               yv=0
+               break;
+         }
+         return yv;
+      }
+
+      function drawEverything() {
+         //drawing backgeround
+         colorRect(0, 0, canvas.width, canvas.height, 'black');
+         //drawing paddle1
+         colorRect(0, paddle1Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
+          //drawing paddle2
+         colorRect(canvas.width-PADDLE_WIDTH, paddle2Y, PADDLE_WIDTH, PADDLE_HEIGHT, 'white');
+         //drawing cirlce
+         colorCircle(ballX, ballY, 10,'white');
+      }
+
+      function colorCircle(centerX, centerY, radius, drawColor){
+         canvasContext.fillStyle = drawColor;
+         canvasContext.beginPath();
+         canvasContext.arc(centerX, centerY, radius, 0, Math.PI*2, true);
+         canvasContext.fill();
+      }
+
+      function colorRect (leftX, topY, width, height, drawColor) {
+         canvasContext.fillStyle = drawColor;
+         canvasContext.fillRect(leftX, topY, width, height);
+      }
+   </script>
+</body>
+</html>
